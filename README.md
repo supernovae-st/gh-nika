@@ -1,6 +1,6 @@
 # gh-nika
 
-> Nika — intent-as-code for AI workflows: author a reviewable DAG in YAML,
+> Nika · intent-as-code for AI workflows: author a reviewable DAG in YAML,
 > audit cost/permits **before** running, keep tamper-evident traces after.
 
 A [GitHub CLI](https://cli.github.com) extension for the
@@ -10,20 +10,20 @@ A [GitHub CLI](https://cli.github.com) extension for the
 ```sh
 gh extension install supernovae-st/gh-nika
 
-gh nika check flow.nika.yaml   # static audit — DAG, cost floor, secret flows, permits
+gh nika check flow.nika.yaml   # static audit · DAG, cost floor, secret flows, permits
 gh nika run   flow.nika.yaml   # execute · budget-cappable · hash-chained trace
 gh nika trace verify .nika/traces/*.ndjson
 ```
 
 ## How it resolves the binary
 
-1. A `nika` already on your `PATH` wins — the extension is a pass-through.
+1. A `nika` already on your `PATH` wins · the extension is a pass-through.
 2. Otherwise it downloads the **latest release binary once** (macOS/Linux ·
    x64/arm64), verifies it against the release `SHA256SUMS`, caches it under
    `${XDG_DATA_HOME:-~/.local/share}/gh-nika/`, and runs it from there.
    `GH_NIKA_DIR` overrides the cache location.
 
-Handy where `gh` is already the tooling spine — Actions runners, Codespaces,
+Handy where `gh` is already the tooling spine · Actions runners, Codespaces,
 locked-down laptops:
 
 ```yaml
