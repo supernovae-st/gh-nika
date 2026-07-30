@@ -15,6 +15,8 @@ gh nika run   flow.nika.yaml   # execute · budget-cappable · hash-chained trac
 gh nika trace verify .nika/traces/*.ndjson
 ```
 
+![gh extension install supernovae-st/gh-nika, then gh nika check runs the full static audit through the extension: plan waves, models, cost floor, energy, secrets, types, tools, args, schema, gates, writes, permits, the lethal-trifecta gate, and the task DAG · recorded against the released binary](media/gh-check.gif)
+
 ## How it resolves the binary
 
 1. A `nika` already on your `PATH` wins · the extension is a pass-through.
