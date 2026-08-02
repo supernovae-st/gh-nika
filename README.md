@@ -39,6 +39,16 @@ locked-down laptops:
 (For PR comments with the check verdict + DAG, the purpose-built
 [nika-action](https://github.com/supernovae-st/nika-action) is the richer lane.)
 
+## Upgrade
+
+```sh
+gh extension upgrade nika
+```
+
+That upgrades the wrapper. The cached engine binary stays where it is ·
+`GH_NIKA_REFRESH=1 gh nika --version` discards it and re-fetches the latest
+release, checksum-verified like the first install.
+
 ## Uninstall
 
 ```sh
