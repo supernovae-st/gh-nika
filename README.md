@@ -58,14 +58,14 @@ gh nika --help
 
 ```
 nika             a plan from a file
-nika try         rehearsal · to own the file: nika new <slug>
-nika new hello   one file that runs on this machine
+nika try         rehearsal · nothing written
+nika compile hello hello.nika   write the offline lesson at an explicit destination
 nika run         run a file
 nika check       audit · in the file, permits = what this file is allowed to touch
 nika doctor      PATH, model, sandbox · isolate with env -i HOME=$scratch PATH="$PATH" nika …
 ```
 
-Write `hello.nika.yaml`. The `mock/echo` model rehearses with no key and no
+Write `hello.nika`. The `mock/echo` model rehearses with no key and no
 network:
 
 ```yaml
@@ -84,7 +84,7 @@ outputs:
 Audit it before anything runs:
 
 ```sh
-gh nika check hello.nika.yaml
+gh nika check hello.nika
 ```
 
 ```
@@ -103,7 +103,7 @@ types, the tools, the schema, the gates and the writes.
 Run it under a cost ceiling of zero:
 
 ```sh
-gh nika run hello.nika.yaml --max-cost-usd 0
+gh nika run hello.nika --max-cost-usd 0
 ```
 
 ```
@@ -206,7 +206,7 @@ extension needs only the job token:
 ```yaml
 - run: |
     gh extension install supernovae-st/gh-nika
-    gh nika check flows/report.nika.yaml
+    gh nika check flows/report.nika
   env:
     GH_TOKEN: ${{ github.token }}
 ```
@@ -255,7 +255,7 @@ Every push to `main` and every pull request runs
 |---|---|
 | `shellcheck gh-nika` | the script is lint-clean |
 | `shfmt -d -i 2 -ci -bn gh-nika` | the formatting is canonical; a diff fails the job |
-| smoke · pass-through | a fake `nika` placed first on the PATH receives `check flow.nika.yaml --json`, argv intact |
+| smoke · pass-through | a fake `nika` placed first on the PATH receives `check flow.nika --json`, argv intact |
 | smoke · download | with no `nika` on the PATH and a scratch `GH_NIKA_DIR`, `./gh-nika --version` fetches the real latest release, verifies it and leaves an executable in the cache |
 | smoke · refresh | `GH_NIKA_REFRESH=1 ./gh-nika --version` fetches and verifies it again |
 
@@ -270,11 +270,11 @@ Replay the first three gates locally:
 shellcheck gh-nika
 shfmt -d -i 2 -ci -bn gh-nika
 mkdir -p /tmp/fakebin && printf '#!/usr/bin/env bash\necho "FAKE argv: $*"\n' > /tmp/fakebin/nika && chmod +x /tmp/fakebin/nika
-PATH="/tmp/fakebin:$PATH" ./gh-nika check flow.nika.yaml --json
+PATH="/tmp/fakebin:$PATH" ./gh-nika check flow.nika --json
 ```
 
 ```
-FAKE argv: check flow.nika.yaml --json
+FAKE argv: check flow.nika --json
 ```
 
 ## Upgrade
@@ -299,9 +299,10 @@ rm -rf "${XDG_DATA_HOME:-$HOME/.local/share}/gh-nika"
 ## Documentation
 
 - `gh nika --help` · the engine's card. `gh nika try` lists its rehearsal
-  examples and `gh nika try 01-hello` runs one offline; `gh nika new
-  <template> <file>` is the creation door; `gh nika explain NIKA-AUTH-006`
-  teaches a finding and links its page.
+  examples and `gh nika try 01-hello` runs one offline; `gh nika compile
+  hello hello.nika` writes the offline lesson; `gh nika compile --list`
+  names exact skeletons; unknown intent stays incomplete; `gh nika explain
+  NIKA-AUTH-006` teaches a finding and links its page.
 - [docs.nika.sh](https://docs.nika.sh) · the language, the engine and the
   other doors.
 - [supernovae-st/nika](https://github.com/supernovae-st/nika) · the engine,

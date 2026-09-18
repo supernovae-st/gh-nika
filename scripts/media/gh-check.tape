@@ -35,7 +35,7 @@ Sleep 2200ms
 Type "# audit BEFORE a token is spent · the extension resolves the released binary"
 Enter
 Sleep 700ms
-Type "gh nika check meeting-actions.nika.yaml"
+Type "gh nika check meeting-actions.nika"
 Enter
 Sleep 5200ms
 Sleep 1400ms
