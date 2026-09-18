@@ -58,8 +58,8 @@ gh nika --help
 
 ```
 nika             a plan from a file
-nika try         rehearsal · to own the file: nika new <slug>
-nika new hello   one file that runs on this machine
+nika try         rehearsal · nothing written
+nika compile hello hello.nika   write the offline lesson at an explicit destination
 nika run         run a file
 nika check       audit · in the file, permits = what this file is allowed to touch
 nika doctor      PATH, model, sandbox · isolate with env -i HOME=$scratch PATH="$PATH" nika …
@@ -299,9 +299,10 @@ rm -rf "${XDG_DATA_HOME:-$HOME/.local/share}/gh-nika"
 ## Documentation
 
 - `gh nika --help` · the engine's card. `gh nika try` lists its rehearsal
-  examples and `gh nika try 01-hello` runs one offline; `gh nika new
-  <template> <file>` is the creation door; `gh nika explain NIKA-AUTH-006`
-  teaches a finding and links its page.
+  examples and `gh nika try 01-hello` runs one offline; `gh nika compile
+  hello hello.nika` writes the offline lesson; `gh nika compile --list`
+  names exact skeletons; unknown intent stays incomplete; `gh nika explain
+  NIKA-AUTH-006` teaches a finding and links its page.
 - [docs.nika.sh](https://docs.nika.sh) · the language, the engine and the
   other doors.
 - [supernovae-st/nika](https://github.com/supernovae-st/nika) · the engine,
