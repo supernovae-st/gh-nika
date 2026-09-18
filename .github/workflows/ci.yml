@@ -14,6 +14,11 @@ jobs:
       - name: shellcheck
         run: shellcheck gh-nika
 
+      - name: Retired program-suffix ratchet
+        run: |
+          python3 scripts/suffix_ratchet.py
+          python3 -m unittest scripts/test_suffix_ratchet.py -v
+
       - name: shfmt (diff = fail)
         run: |
           curl -fsSL -o /usr/local/bin/shfmt \
@@ -26,9 +31,9 @@ jobs:
           mkdir -p /tmp/fakebin
           printf '#!/usr/bin/env bash\necho "FAKE argv: $*"\n' > /tmp/fakebin/nika
           chmod +x /tmp/fakebin/nika
-          out="$(PATH="/tmp/fakebin:$PATH" ./gh-nika check flow.nika.yaml --json)"
+          out="$(PATH="/tmp/fakebin:$PATH" ./gh-nika check flow.nika --json)"
           echo "$out"
-          test "$out" = "FAKE argv: check flow.nika.yaml --json"
+          test "$out" = "FAKE argv: check flow.nika --json"
 
       - name: smoke · download lane (checksum-verified fetch, real release)
         env:

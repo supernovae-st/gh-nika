@@ -65,7 +65,7 @@ nika check       audit · in the file, permits = what this file is allowed to to
 nika doctor      PATH, model, sandbox · isolate with env -i HOME=$scratch PATH="$PATH" nika …
 ```
 
-Write `hello.nika.yaml`. The `mock/echo` model rehearses with no key and no
+Write `hello.nika`. The `mock/echo` model rehearses with no key and no
 network:
 
 ```yaml
@@ -84,7 +84,7 @@ outputs:
 Audit it before anything runs:
 
 ```sh
-gh nika check hello.nika.yaml
+gh nika check hello.nika
 ```
 
 ```
@@ -103,7 +103,7 @@ types, the tools, the schema, the gates and the writes.
 Run it under a cost ceiling of zero:
 
 ```sh
-gh nika run hello.nika.yaml --max-cost-usd 0
+gh nika run hello.nika --max-cost-usd 0
 ```
 
 ```
@@ -206,7 +206,7 @@ extension needs only the job token:
 ```yaml
 - run: |
     gh extension install supernovae-st/gh-nika
-    gh nika check flows/report.nika.yaml
+    gh nika check flows/report.nika
   env:
     GH_TOKEN: ${{ github.token }}
 ```
@@ -255,7 +255,7 @@ Every push to `main` and every pull request runs
 |---|---|
 | `shellcheck gh-nika` | the script is lint-clean |
 | `shfmt -d -i 2 -ci -bn gh-nika` | the formatting is canonical; a diff fails the job |
-| smoke · pass-through | a fake `nika` placed first on the PATH receives `check flow.nika.yaml --json`, argv intact |
+| smoke · pass-through | a fake `nika` placed first on the PATH receives `check flow.nika --json`, argv intact |
 | smoke · download | with no `nika` on the PATH and a scratch `GH_NIKA_DIR`, `./gh-nika --version` fetches the real latest release, verifies it and leaves an executable in the cache |
 | smoke · refresh | `GH_NIKA_REFRESH=1 ./gh-nika --version` fetches and verifies it again |
 
@@ -270,11 +270,11 @@ Replay the first three gates locally:
 shellcheck gh-nika
 shfmt -d -i 2 -ci -bn gh-nika
 mkdir -p /tmp/fakebin && printf '#!/usr/bin/env bash\necho "FAKE argv: $*"\n' > /tmp/fakebin/nika && chmod +x /tmp/fakebin/nika
-PATH="/tmp/fakebin:$PATH" ./gh-nika check flow.nika.yaml --json
+PATH="/tmp/fakebin:$PATH" ./gh-nika check flow.nika --json
 ```
 
 ```
-FAKE argv: check flow.nika.yaml --json
+FAKE argv: check flow.nika --json
 ```
 
 ## Upgrade

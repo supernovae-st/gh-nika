@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # gh-nika — GitHub CLI extension for the Nika workflow engine (nika.sh).
 #
-#   gh nika check flow.nika.yaml     # static audit before a token is spent
-#   gh nika run   flow.nika.yaml     # execute with a hash-chained trace
+#   gh nika check flow.nika     # static audit before a token is spent
+#   gh nika run   flow.nika     # execute with a hash-chained trace
 #
 # Uses the `nika` already on PATH when present; otherwise fetches the
 # latest verified release binary once (SHA256SUMS-checked) into
