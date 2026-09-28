@@ -26,13 +26,14 @@
 </p>
 
 <!-- engine clips: served from the engine repository's main branch (media/), so they follow its latest render, not a release tag -->
+<p align="center"><b>Watch four commands take a first workflow from nothing to a verified run, offline and with no key.</b></p>
 <p align="center">
-  <a href="https://github.com/supernovae-st/nika/raw/refs/heads/main/media/videos/full-loop.mp4">
+  <a href="https://raw.githubusercontent.com/supernovae-st/nika/main/media/gifs/full-loop.optimized.gif">
     <img src="https://raw.githubusercontent.com/supernovae-st/nika/main/media/gifs/full-loop.optimized.gif"
-         alt="Four commands, offline and with no key: nika compile writes hello.nika, nika check audits it, nika run rehearses it on mock/echo, and nika trace verify confirms the run's hash chain" width="760">
+         alt="Four commands, offline and with no key: nika compile writes hello.nika, nika check audits it, nika run rehearses it on mock/echo, and nika trace verify confirms the run's hash chain" width="960">
   </a>
 </p>
-<p align="center"><sub>The four <code>nika</code> commands this extension passes through. Behind the GitHub CLI you type them after <code>gh</code>, as in <code>gh nika check hello.nika</code>. Click to open the video.</sub></p>
+<p align="center"><sub>The four <code>nika</code> commands this extension passes through. Behind the GitHub CLI you type them after <code>gh</code>, as in <code>gh nika check hello.nika</code>. Notice that <code>trace verify</code> reads back the chain head the run printed. Captured from the real CLI; the run is a <code>mock/echo</code> rehearsal. Click to open it full size.</sub></p>
 
 ## What is Nika?
 
@@ -126,24 +127,41 @@ gh nika trace verify
   </tr>
 </table>
 
-<table>
-  <tr>
-    <td width="33%" align="center" valign="top">
-      <a href="https://github.com/supernovae-st/nika/raw/refs/heads/main/media/videos/nika-hero.mp4"><img src="https://raw.githubusercontent.com/supernovae-st/nika/main/media/posters/nika-hero.png" alt="A meeting-actions workflow audited, then run on a local model, with the owners, tasks and due dates it wrote"></a><br>
-      <b>Audit first, then run</b><br><sub><code>check</code>, then a real local-model <code>run</code> and the action items it wrote.</sub>
-    </td>
-    <td width="33%" align="center" valign="top">
-      <a href="https://github.com/supernovae-st/nika/raw/refs/heads/main/media/videos/static-check-fix.mp4"><img src="https://raw.githubusercontent.com/supernovae-st/nika/main/media/posters/static-check-fix.png" alt="nika check reporting on a pull-request review workflow, next to the diff that fixed it"></a><br>
-      <b>Caught before it runs</b><br><sub><code>check</code> finds two defects, then passes the fixed file.</sub>
-    </td>
-    <td width="33%" align="center" valign="top">
-      <a href="https://github.com/supernovae-st/nika/raw/refs/heads/main/media/videos/workflow-gallery.mp4"><img src="https://raw.githubusercontent.com/supernovae-st/nika/main/media/posters/workflow-gallery.png" alt="The nika try gallery: ready-made jobs built into the engine, from bookmark-triage to transcript-shownotes"></a><br>
-      <b>Start from a job</b><br><sub><code>try</code> lists the ready-made workflows built into the engine.</sub>
-    </td>
-  </tr>
-</table>
+The clips below show the `nika` commands; behind the GitHub CLI you type
+them after `gh`.
 
-<p align="center"><sub>The clips show the <code>nika</code> commands; behind the GitHub CLI you type them after <code>gh</code>. Click a poster to open its video.</sub></p>
+**Audit first, then run: watch a workflow checked, then run on a local
+model.**
+
+<p align="center">
+  <a href="https://raw.githubusercontent.com/supernovae-st/nika/main/media/gifs/nika-hero.optimized.gif">
+    <img src="https://raw.githubusercontent.com/supernovae-st/nika/main/media/gifs/nika-hero.optimized.gif"
+         alt="A meeting-actions workflow audited, then run on a local model, with the owners, tasks and due dates it wrote" width="860">
+  </a>
+</p>
+<p align="center"><sub><code>check</code>, then a real local-model <code>run</code> and the action items it wrote. Notice the owners, tasks and due dates landing in a typed file. The check is captured from the real CLI and the run is a captured local-model run (<code>ollama/llama3.2:3b</code>). Click to open it full size.</sub></p>
+
+**Caught before it runs: watch `check` find two mistakes, then pass the
+fixed file.**
+
+<p align="center">
+  <a href="https://raw.githubusercontent.com/supernovae-st/nika/main/media/gifs/static-check-fix.optimized.gif">
+    <img src="https://raw.githubusercontent.com/supernovae-st/nika/main/media/gifs/static-check-fix.optimized.gif"
+         alt="nika check finds two defects in a pull-request review workflow, the fix is applied, and the re-check comes back clean; nothing runs and no token is spent" width="860">
+  </a>
+</p>
+<p align="center"><sub><code>check</code> finds two defects, then passes the fixed file. Notice that each finding names its code and its fix. Output captured from the real CLI; nothing runs and no token is spent. Click to open it full size.</sub></p>
+
+**Start from a job: watch `try` list the ready-made workflows built into
+the engine.**
+
+<p align="center">
+  <a href="https://raw.githubusercontent.com/supernovae-st/nika/main/media/gifs/workflow-gallery.optimized.gif">
+    <img src="https://raw.githubusercontent.com/supernovae-st/nika/main/media/gifs/workflow-gallery.optimized.gif"
+         alt="The nika try gallery: ready-made jobs built into the engine, from bookmark-triage to transcript-shownotes" width="860">
+  </a>
+</p>
+<p align="center"><sub><code>try</code> lists the ready-made workflows built into the engine. Notice the marks on each card: the verbs its tasks use. The names, verbs and lines are the real <code>nika try</code> listing. Click to open it full size.</sub></p>
 
 ## Every command, behind gh
 
