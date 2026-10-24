@@ -88,8 +88,8 @@ On a machine without `nika`, this first call also downloads the engine once
 and checks it against the release checksums, for example on Linux x64:
 
 ```text
-gh-nika: fetching nika v0.121.0 (linux-x64, checksum-verified)…
-nika-linux-x64-0.121.0.tar.gz: OK
+gh-nika: fetching nika v0.123.0 (linux-x64, checksum-verified)…
+nika-linux-x64-0.123.0.tar.gz: OK
 ```
 
 **3 · Check it, run it, verify the run.**
@@ -110,7 +110,16 @@ gh nika trace verify
 > Run `gh nika key init` once to mint a run-signing key: every later run on
 > this machine is sealed, and `gh nika trace verify` then reports `SEALED` too.
 
-<!-- motion: gh extension install, the first gh nika call fetching and checksum-verifying the engine, then gh nika check and gh nika run -->
+**Watch it from nothing: the install, the first call fetching and verifying
+the engine, then a first workflow written and audited through gh.**
+
+<p align="center">
+  <a href="media/first-call.gif">
+    <img src="media/first-call.gif"
+         alt="gh extension install supernovae-st/gh-nika clones the extension; gh nika --version fetches nika v0.123.0, checks the archive against SHA256SUMS and prints the version; gh nika compile hello hello.nika writes the file and gh nika check audits it to run ready" width="860">
+  </a>
+</p>
+<p align="center"><sub>Notice the archive line ending in <code>OK</code> before the engine answers: that is the checksum check. Recorded with the real GitHub CLI against the live 0.123.0 release, with no <code>nika</code> on the PATH; gh's data directory and the project folder are a scratch sandbox, and HOME is the recorder's (<a href="scripts/media/first-call.tape">first-call.tape</a>).</sub></p>
 
 ## What you get
 
@@ -360,7 +369,7 @@ handed the arguments over unchanged.
 | 🦋 | [nika](https://github.com/supernovae-st/nika) | The engine and CLI: write, check, run and verify AI workflows |
 | 📖 | [nika-docs](https://github.com/supernovae-st/nika-docs) | The documentation, live at [docs.nika.sh](https://docs.nika.sh) |
 | 📜 | [nika-spec](https://github.com/supernovae-st/nika-spec) | The language specification and the suite that proves an engine follows it |
-| 🧩 | [nika-vscode](https://github.com/supernovae-st/nika-vscode) | The editor extension: your workflow as a live graph, errors as you type |
+| 🧩 | [nika-vscode](https://github.com/supernovae-st/nika-vscode) | The editor extension, frozen at 0.120 and not qualified with 0.123: use `nika lsp` and the JSON Schema |
 | 🟦 | [nika-client](https://github.com/supernovae-st/nika-client) | Run and verify workflows from TypeScript |
 | ✅ | [nika-action](https://github.com/supernovae-st/nika-action) | A GitHub Action that posts a `nika check` verdict on your pull requests |
 | 🚀 | [nika-actions-starter](https://github.com/supernovae-st/nika-actions-starter) | A ready template: workflows, editor setup and CI from the first push |
