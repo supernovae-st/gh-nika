@@ -110,7 +110,16 @@ gh nika trace verify
 > Run `gh nika key init` once to mint a run-signing key: every later run on
 > this machine is sealed, and `gh nika trace verify` then reports `SEALED` too.
 
-<!-- motion: gh extension install, the first gh nika call fetching and checksum-verifying the engine, then gh nika check and gh nika run -->
+**Watch it from nothing: the install, the first call fetching and verifying
+the engine, then a first workflow written and audited through gh.**
+
+<p align="center">
+  <a href="media/first-call.gif">
+    <img src="media/first-call.gif"
+         alt="gh extension install supernovae-st/gh-nika clones the extension; gh nika --version fetches nika v0.123.0, checks the archive against SHA256SUMS and prints the version; gh nika compile hello hello.nika writes the file and gh nika check audits it to run ready" width="860">
+  </a>
+</p>
+<p align="center"><sub>Notice the archive line ending in <code>OK</code> before the engine answers: that is the checksum check. Recorded with the real GitHub CLI on a machine without <code>nika</code>, against the live 0.123.0 release; gh's data directory and the project folder are a scratch sandbox (<a href="scripts/media/first-call.tape">first-call.tape</a>).</sub></p>
 
 ## What you get
 
