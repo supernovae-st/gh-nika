@@ -88,8 +88,8 @@ On a machine without `nika`, this first call also downloads the engine once
 and checks it against the release checksums, for example on Linux x64:
 
 ```text
-gh-nika: fetching nika v0.121.0 (linux-x64, checksum-verified)…
-nika-linux-x64-0.121.0.tar.gz: OK
+gh-nika: fetching nika v0.123.0 (linux-x64, checksum-verified)…
+nika-linux-x64-0.123.0.tar.gz: OK
 ```
 
 **3 · Check it, run it, verify the run.**
