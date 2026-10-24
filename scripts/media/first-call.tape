@@ -26,7 +26,7 @@ Type ". /tmp/nika-gh-demo/shell.zsh && clear"
 Enter
 Show
 
-Type "# the GitHub CLI you already have · no nika on this machine yet"
+Type "# the GitHub CLI you already have · no nika on the PATH yet"
 Enter
 Sleep 600ms
 Type "gh extension install supernovae-st/gh-nika"
